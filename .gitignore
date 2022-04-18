@@ -1,0 +1,7 @@
+notes.md
+node_modules
+tmp/
+*.drawio
+deployment.zip
+.vscode
+scripts/

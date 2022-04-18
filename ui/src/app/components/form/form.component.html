@@ -1,0 +1,37 @@
+<mat-card class="upload-card">
+  <mat-card-header>Choose your source image...</mat-card-header>
+  <mat-form-field>
+    <div (click)="uploadFile.click()">
+      <input matInput readonly name="name" />
+      <button mat-raised-button color="primary">Choose File</button>
+      <input
+        #uploadFile
+        (change)="upload($event)"
+        accept="image/*"
+        type="file"
+        style="display: none"
+      />
+    </div>
+  </mat-form-field>
+  <mat-card-actions>
+    <button
+      (click)="pushFile()"
+      [disabled]="!fileSelected"
+      mat-raised-button
+      color="primary"
+    >
+      Generate Icons
+    </button>
+  </mat-card-actions>
+  <mat-card-footer>
+    <button
+      (click)="downloadIcons()"
+      [class]="dwnldReady ? 'dwn-btn show' : 'dwn-btn hide'"
+      mat-raised-button
+      color="accent"
+    >
+      Download Icons
+    </button>
+  </mat-card-footer>
+  <mat-spinner [class]="generating ? 'show' : 'hide'"></mat-spinner>
+</mat-card>
